@@ -19,3 +19,19 @@ Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,
 
 Input: height = [1,1]  
 Output: 1
+
+
+# ダメな解答例
+ブルーフォースで解いてみる。  
+Time Limit Exceeded になる。
+
+```
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        max_water = 0
+        for i in range(len(height)):
+            for j in range(i+1, len(height)):
+                max_water = max(max_water, min(height[i], height[j]) * (j - i))
+        return max_water
+
+```
